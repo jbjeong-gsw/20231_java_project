@@ -8,6 +8,8 @@ public class SimplestApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SimplestApplication.class, args);
+		System.out.println("내 프로그램이 실행되었다.");
+
 	}
 
 }
