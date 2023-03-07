@@ -15,4 +15,9 @@ public class HomeController {
     public String hello() {
         return "hello";
     }
+
+    @RequestMapping("/jademon")
+    public String jademon() {
+        return "jademon";
+    }
 }
