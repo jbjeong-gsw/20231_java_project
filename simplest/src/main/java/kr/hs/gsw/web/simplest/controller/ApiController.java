@@ -1,11 +1,9 @@
 package kr.hs.gsw.web.simplest.controller;
 
 import kr.hs.gsw.web.simplest.dto.Person;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -21,8 +19,10 @@ public class ApiController {
         return person;
     }
 
-    @RequestMapping("/person2")
-    public Person person2(@RequestBody Person person) {
+    //@RequestMapping(value = "/person2", consumes = {"application/x-www-form-urlencoded"})
+    @RequestMapping(value = "/person2")
+    public Person person2(@ModelAttribute  Person person) {
+        LoggerFactory.getLogger(getClass()).info("Person : " + person);
         return person;
     }
 
