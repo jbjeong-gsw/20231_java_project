@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>GBSW</title>
@@ -7,5 +7,7 @@
 <body>
 <h1>경북소프트웨어고등학교</h1>
 <p>3학년 1학기 응용프로그램 수업</p>
+<p>힘내라 <span th:text="${name}">gbsw</span></p>
+<p>당신의 희망 점수 : <span th:text="${count}"></span></p>
 </body>
 </html>
