@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1>날씨</h1>
+
+  <p>
+    기상 캐스트의 이름은 <span th:text="${name}"></span> 입니다.<br><br>
+    현재 기온은 <span th:text="${weather.temperature}"></span>도이고, <br>
+    습도는 <span th:text="${weather.humidity}"></span>%입니다. <br>
+    풍향은 <span th:text="${weather.wind}"></span>입니다.
+   </p>
+</body>
+</html>

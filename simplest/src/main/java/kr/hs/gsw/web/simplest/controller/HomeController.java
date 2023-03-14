@@ -1,11 +1,9 @@
 package kr.hs.gsw.web.simplest.controller;
 
+import kr.hs.gsw.web.simplest.dto.Weather;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -97,6 +95,17 @@ public class HomeController {
     @RequestMapping("/form1")
     public String form1() {
         return "form1";
+    }
+
+    @RequestMapping("/weather")
+    public String weather(Model model,
+            @RequestParam(value = "name") String name,
+            @ModelAttribute Weather weather) {
+
+        model.addAttribute("name", name);
+        model.addAttribute("weather", weather);
+
+        return "weather";
     }
 
 }
