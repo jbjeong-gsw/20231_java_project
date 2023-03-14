@@ -2,6 +2,7 @@ package kr.hs.gsw.web.simplest.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -45,4 +46,17 @@ public class HomeController {
     public String hello() {
         return "hello";
     }
+
+    @RequestMapping("/spring/{count}/{name}")
+    public String spring(Model model,
+                         @PathVariable("count") int count,
+                         @PathVariable("name") String name) {
+
+        model.addAttribute("name", name);
+        model.addAttribute("count", count);
+
+        return "index";
+    }
+
+
 }
