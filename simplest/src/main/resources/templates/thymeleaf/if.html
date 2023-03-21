@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf 공부</title>
+
+    <style>
+        label {
+            display: inline-block;
+            width: 200px;
+            margin-right: 10px;
+            color: gray;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1>Thymeleaf - if</h1>
+<ul>
+    <li>
+        <label>th:if</label>
+        <span th:if="${result}">조건이 맞으면 표시됩니다.</span>
+    </li>
+    <li>
+        <label>th:unless</label>
+        <span th:unless="${result}">조건이 맞지 않으면 표시됩니다.</span>
+    </li>
+    <li>
+        <label>th:if</label>
+        <span th:if="${success}">조건이 맞으면 표시됩니다.</span>
+    </li>
+    <li>
+        <label>th:unless</label>
+        <span th:unless="${success}">조건이 맞지 않으면 표시됩니다.</span>
+    </li>
+</ul>
+
+</body>
+</html>

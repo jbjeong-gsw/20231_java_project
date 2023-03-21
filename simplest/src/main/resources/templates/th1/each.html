@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        label {
+            display: inline-block;
+            width: 100px;
+            color : gray;
+        }
+
+        table {
+            width: 500px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #888;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Thymeleaf - each</h1>
+
+    <ul>
+        <li th:each="color : ${colors}">
+            [[${color}]]
+        </li>
+    </ul>
+
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>글쓴이</th>
+            <th>읽은 회수</th>
+        </tr>
+        <tr th:each="item, i : ${list}">
+            <td th:text="${i.count}"></td>
+            <td th:text="${item.title}"></td>
+            <td th:text="${item.writer}"></td>
+            <td th:text="${item.hit}"></td>
+        </tr>
+    </table>
+
+</body>
+
+<script>
+
+    //alert("[[${now}]]");
+
+</script>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf 공부</title>
+
+    <style>
+        span {
+            display: inline-block;
+            width: 80px;
+            margin-right: 10px;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1>Thymeleaf - each</h1>
+<ul>
+    <li th:each="item, stat : ${list}">
+        <span th:text="${item.name}"></span>
+        <span th:text="${item.age}"></span>
+        <span th:text="${item.gender}"></span>
+        <span th:text="${stat.index}"></span>
+    </li>
+</ul>
+
+</body>
+</html>
