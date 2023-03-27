@@ -54,6 +54,17 @@ public class ThymeleafController1 {
         return "th1/each";
     }
 
+    @GetMapping("/layout/home")
+    public String layoutHome() {
+        return "th1/d0327/home";
+    }
+
+    @GetMapping("/layout/about")
+    public String layoutAbout() {
+        return "th1/d0327/about";
+    }
+
+
     public static class Writing {
         private String title;
         public String writer;
