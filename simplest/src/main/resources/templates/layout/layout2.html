@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">GBSW</title>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <a href="/th2/layout/home">Home</a>
+    <a href="/th2/layout/about">About</a>
+  </nav>
+</header>
+
+<div layout:fragment="content"></div>
+
+<footer>
+  <p>&copy; 2023 경북소프트웨어고등학교</p>
+</footer>
+
+</body>
+</html>
