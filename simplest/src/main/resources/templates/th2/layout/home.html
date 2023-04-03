@@ -4,14 +4,56 @@
       layout:decorate="layout/layout2">
 <head>
   <title>Home</title>
+
 </head>
+
 
 <body>
 
+<th:block layout:fragment="css_area">
+  <style>
+    #popup {
+      display: none;
+      position: fixed;
+      left: 200px;
+      top: 150px;
+      font-size: 2rem;
+      color: magenta;
+      border: 1px solid #888;
+      background-color: #EEE;
+    }
+
+  </style>
+
+</th:block>
+
+
+<th:block layout:fragment="js_area">
+  <script>
+
+    const sayHello = () => {
+      //alert("안녕하세요");
+
+      let popup = document.querySelector("#popup");
+      popup.style.display = 'block';
+
+    };
+
+  </script>
+
+</th:block>
+
 <div layout:fragment="content">
-  <h1>Welcome to the home page!</h1>
+  <h1 onclick="sayHello();">Welcome to the home page!</h1>
   <p>This is the home page content.</p>
+
 </div>
+
+
+<div id="popup" layout:fragment="popup_area">
+  안녕하세요.
+</div>
+
 
 </body>
 </html>

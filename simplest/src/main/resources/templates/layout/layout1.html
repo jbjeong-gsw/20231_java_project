@@ -3,6 +3,9 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
   <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">GBSW</title>
+
+  <th:block layout:fragment="style_area"></th:block>
+
 </head>
 <body>
 <header>
@@ -14,8 +17,15 @@
 
 <div layout:fragment="content"></div>
 
+<div layout:fragment="popup_area"></div>
+
 <footer>
   <p>&copy; 2023 경북소프트웨어고등학교</p>
 </footer>
+
+
+
+<th:block layout:fragment="js_area"></th:block>
+
 </body>
 </html>
