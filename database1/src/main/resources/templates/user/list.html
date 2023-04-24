@@ -3,6 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>사용자 목록</title>
+    <style>
+        .page {
+            margin-right: 1rem;
+        }
+
+        .active {
+            font-weight: bold;
+        }
+
+    </style>
+
 </head>
 <body>
     <h1>사용자 목록</h1>
@@ -16,7 +27,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="user : ${list}">
+            <tr th:each="user : ${list.content}">
                 <td th:text="${user.userName}"></td>
                 <td th:text="${user.email}"></td>
                 <td th:text="${user.phoneNumber}"></td>
@@ -25,11 +36,11 @@
     </table>
 
     <div style="width: 300px; text-align: center;">
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-        <span>5</span>
+        <th:block th:each="num : ${#numbers.sequence(1, list.totalPages)}">
+            <a class="page active" th:if="${list.number == (num - 1)}"   th:text="${num}"  th:href="|/user/list?pageNumber=${num}|"></a>
+            <a class="page" th:unless="${list.number == (num - 1)}"   th:text="${num}"  th:href="|/user/list?pageNumber=${num}|"></a>
+        </th:block>
+
     </div>
 
 </body>

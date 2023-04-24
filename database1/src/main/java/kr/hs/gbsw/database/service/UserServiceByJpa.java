@@ -40,6 +40,6 @@ public class UserServiceByJpa implements UserService {
 
     @Override
     public Page<User> getPagingList(int pageNumber) {
-        return userRepository.findAll(PageRequest.of(pageNumber, 10));
+        return userRepository.findAll(PageRequest.of(pageNumber, 3));
     }
 }
