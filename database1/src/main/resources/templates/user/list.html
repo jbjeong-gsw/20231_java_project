@@ -32,6 +32,11 @@
 
     <div class="search">
         <form method="get" action="/user/list">
+            <select name="type">
+                <option value="userName">이름</option>
+                <option value="email">이메일</option>
+                <option value="phoneNumber">전화번호</option>
+            </select>
             <input type="text" name="search">
             <button>검색</button>
         </form>
