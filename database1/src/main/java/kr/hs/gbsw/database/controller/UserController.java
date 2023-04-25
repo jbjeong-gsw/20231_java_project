@@ -41,9 +41,11 @@ public class UserController {
 
     @GetMapping("user/list")
     public String list(Model model,
-               @RequestParam(value = "pageNumber", defaultValue = "1") int pageNumber) {
+               @RequestParam(value = "pageNumber", defaultValue = "1") int pageNumber,
+               @RequestParam(value="search", defaultValue = "") String search) {
         //List<User> userList = userService.getList();
-        Page<User> userList = userService.getPagingList(pageNumber - 1);
+        //Page<User> userList = userService.getPagingList(pageNumber - 1);
+        Page<User> userList = userService.getSearchList(search, (pageNumber - 1));
 
         model.addAttribute("list", userList);
 

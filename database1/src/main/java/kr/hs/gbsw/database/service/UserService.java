@@ -15,4 +15,6 @@ public interface UserService {
 
     public Page<User> getPagingList(int pageNumber);
 
+    public Page<User> getSearchList(String search, int pageNumber);
+
 }

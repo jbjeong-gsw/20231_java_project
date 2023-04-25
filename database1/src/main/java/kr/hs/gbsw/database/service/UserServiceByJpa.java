@@ -5,6 +5,7 @@ import kr.hs.gbsw.database.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +41,14 @@ public class UserServiceByJpa implements UserService {
 
     @Override
     public Page<User> getPagingList(int pageNumber) {
-        return userRepository.findAll(PageRequest.of(pageNumber, 3));
+        return userRepository.findAll(PageRequest.of(pageNumber, 10));
+    }
+
+    @Override
+    public Page<User> getSearchList(String search, int pageNumber) {
+        Pageable pageable = PageRequest.of(pageNumber, 10,
+                Sort.by(Sort.Direction.ASC, "userName"));
+
+        return userRepository.findByUserNameLike("%" + search + "%", pageable);
     }
 }

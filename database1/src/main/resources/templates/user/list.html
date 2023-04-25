@@ -12,11 +12,30 @@
             font-weight: bold;
         }
 
+        table {
+            width: 600px;
+        }
+
+        .search {
+            width: 600px;
+            text-align: right;
+            margin-right: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
     </style>
 
 </head>
 <body>
     <h1>사용자 목록</h1>
+
+    <div class="search">
+        <form method="get" action="/user/list">
+            <input type="text" name="search">
+            <button>검색</button>
+        </form>
+    </div>
 
     <table>
         <thead>
