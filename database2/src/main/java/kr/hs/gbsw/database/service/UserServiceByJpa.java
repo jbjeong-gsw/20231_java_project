@@ -29,6 +29,11 @@ public class UserServiceByJpa implements UserService {
     }
 
     @Override
+    public User getUser(String email) {
+        return userRepository.getUserByEmail2(email).orElseThrow();
+    }
+
+    @Override
     public List<User> getList() {
         return userRepository.findAll(Sort.by(Sort.Direction.ASC , "userName"));
     }

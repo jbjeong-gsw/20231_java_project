@@ -11,6 +11,8 @@ public interface UserService {
 
     public User getUser(int userIdx);
 
+    public User getUser(String email);
+
     public List<User> getList();
 
     public Page<User> getPagingList(int pageNumber);
