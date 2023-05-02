@@ -3,6 +3,7 @@ package kr.hs.gbsw.database.controller;
 import kr.hs.gbsw.database.entity.User;
 import kr.hs.gbsw.database.repository.UserRepository;
 import kr.hs.gbsw.database.service.UserService;
+import kr.hs.gbsw.database.service.UserServiceByJpa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;

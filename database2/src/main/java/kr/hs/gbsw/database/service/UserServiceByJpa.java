@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service(value = "userService")
+//@Service(value = "userService")
 public class UserServiceByJpa implements UserService {
     @Autowired
     private UserRepository userRepository;

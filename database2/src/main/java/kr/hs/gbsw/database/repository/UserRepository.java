@@ -23,8 +23,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query(value = "SELECT u FROM User u WHERE u.email = :email")
     public Optional<User> getUserByEmail2(String email);
 
-    public List<User> getListByPhoneNumberLike1(String phoneNumber);
+    //public List<User> getListByPhoneNumberLike1(String phoneNumber);
 
-    public List<User> getListByPhoneNumberLike2(String phoneNumber);
+    //public List<User> getListByPhoneNumberLike2(String phoneNumber);
 
 }

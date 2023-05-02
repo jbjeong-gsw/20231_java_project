@@ -4,3 +4,7 @@ spring:
     username: student
     password: a1235
     driver-class-name: org.mariadb.jdbc.Driver
+
+mybatis:
+  mapper-locations: mapper/**/*.xml
+
