@@ -17,5 +17,9 @@ public class HomeController {
         return "page1";
     }
 
+    @RequestMapping("/user/detail")
+    public String userDetail(Model model) {
+        return "user/detail";
+    }
 
 }
