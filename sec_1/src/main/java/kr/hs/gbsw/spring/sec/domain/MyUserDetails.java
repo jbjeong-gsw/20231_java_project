@@ -12,8 +12,15 @@ public class MyUserDetails implements UserDetails {
 
     private PasswordEncoder passwordEncoder;
 
-    public MyUserDetails(PasswordEncoder passwordEncoder) {
+    private String username;
+
+    private String password;
+
+    public MyUserDetails(PasswordEncoder passwordEncoder, String username,
+                         String password) {
         this.passwordEncoder = passwordEncoder;
+        this.username = username;
+        this.password = password;
     }
 
     @Override
@@ -27,12 +34,12 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return passwordEncoder.encode("1111");
+        return passwordEncoder.encode(password);
     }
 
     @Override
     public String getUsername() {
-        return "이재성";
+        return username;
     }
 
     @Override

@@ -19,7 +19,11 @@ public class MyUserDetailsService implements UserDetailsService {
             throws UsernameNotFoundException {
 
         if ("이재성".equals(username)) {
-            return new MyUserDetails(passwordEncoder);
+            return new MyUserDetails(passwordEncoder,
+                    "이재성", "1111");
+        } else if ("김윤현".equals(username)) {
+            return new MyUserDetails(passwordEncoder,
+                    "김윤현", "1234");
         }
 
         return null;
