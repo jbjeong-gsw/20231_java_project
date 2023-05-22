@@ -16,4 +16,10 @@ public class HomeController {
     public String page1(Model model) {
         return "page1";
     }
+
+    @RequestMapping("/page2")
+    public String page2(Model model) {
+        return "page2";
+    }
+
 }
