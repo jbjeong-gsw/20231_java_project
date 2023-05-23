@@ -27,6 +27,7 @@ public class MyUserDetailsService implements UserDetailsService {
             throws UsernameNotFoundException {
 
         Optional<Member> optional = memberRepository.findByEmail(username);
+
         if (optional.isPresent()) {
             Member member = optional.get();
 

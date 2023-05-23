@@ -19,7 +19,7 @@ public class SecurityConfig {
 
         http.
                 authorizeRequests()
-                .antMatchers("/", "/login", "/asset/**", "/page1").permitAll()
+                .antMatchers("/", "/login", "/logout", "/asset/**", "/page1").permitAll()
                 .antMatchers("/member/add").permitAll()
                 .antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/admin/**").hasRole("ADMIN")
@@ -27,6 +27,10 @@ public class SecurityConfig {
 
         http
                 .formLogin();
+
+        http
+                .logout()
+                .logoutUrl("/logout");
 
         return http.build();
     }
