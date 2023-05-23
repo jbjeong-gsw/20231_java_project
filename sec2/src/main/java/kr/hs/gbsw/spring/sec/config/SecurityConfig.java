@@ -26,6 +26,11 @@ public class SecurityConfig {
 
         http.formLogin();
 
+        http
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/");
+
         return http.build();
     }
 
