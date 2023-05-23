@@ -1,6 +1,9 @@
 package kr.hs.gbsw.spring.sec.service;
 
+import kr.hs.gbsw.spring.sec.domain.Member;
 import kr.hs.gbsw.spring.sec.domain.MyUserDetails;
+import kr.hs.gbsw.spring.sec.domain.SimpleUserDetails;
+import kr.hs.gbsw.spring.sec.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -8,24 +11,29 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service(value = "userDetailsService")
 public class MyUserDetailsService implements UserDetailsService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private MemberRepository memberRepository;
+
     @Override
     public UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException {
 
-        if ("이재성".equals(username)) {
-            return new MyUserDetails(passwordEncoder,
-                    "이재성", "1111");
-        } else if ("김윤현".equals(username)) {
-            return new MyUserDetails(passwordEncoder,
-                    "김윤현", "1234");
-        }
+        Optional<Member> optional = memberRepository.findByEmail(username);
+        if (optional.isPresent()) {
+            Member member = optional.get();
 
-        return null;
+            UserDetails userDetails = new SimpleUserDetails(member);
+            return userDetails;
+        } else {
+            throw new UsernameNotFoundException(username);
+        }
     }
 }
