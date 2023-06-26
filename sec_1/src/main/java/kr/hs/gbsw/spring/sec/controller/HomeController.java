@@ -1,10 +1,12 @@
 package kr.hs.gbsw.spring.sec.controller;
 
 import kr.hs.gbsw.spring.sec.domain.Member;
+import kr.hs.gbsw.spring.sec.domain.SimpleUserDetails;
 import kr.hs.gbsw.spring.sec.service.MemberService;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -46,8 +48,27 @@ public class HomeController {
     }
 
     @RequestMapping("/user/detail")
-    public String userDetail(Model model) {
+    public String userDetail(Model model, Authentication authentication) {
+        LoggerFactory.getLogger(getClass()).debug("Authentication {}", authentication.toString());
+        SimpleUserDetails simpleUserDetails = (SimpleUserDetails) authentication.getPrincipal();
+        Member member = simpleUserDetails.getMember();
+
+        member.setPassword(null);
+
+        //authentication.getPrincipal();
+        model.addAttribute("member", member);
+
         return "user/detail";
     }
+
+
+    @GetMapping("note")
+    public String note(Model model, @RequestParam("aaa") String aaa) {
+        model.addAttribute("content", "<b>경북소프트웨어고등학교<b>");
+
+        return "note";
+    }
+
+
 
 }

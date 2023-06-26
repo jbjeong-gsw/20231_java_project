@@ -19,7 +19,7 @@ public class SecurityConfig {
 
         http.
                 authorizeRequests()
-                .antMatchers("/", "/login", "/logout", "/asset/**", "/page1").permitAll()
+                .antMatchers("/", "/login", "/logout", "/asset/**", "/page1", "/note").permitAll()
                 .antMatchers("/member/add").permitAll()
                 .antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/admin/**").hasRole("ADMIN")

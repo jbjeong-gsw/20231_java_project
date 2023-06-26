@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>user</title>
@@ -9,6 +9,22 @@
     <h1>User Detail</h1>
 
     <p>사용자 상세정보</p>
+    <div>
+        <div>
+            <label>이메일</label>
+            <span th:text="${member.email}"></span>
+        </div>
+        <div>
+            <label>이름</label>
+            <span th:text="${member.name}"></span>
+        </div>
+        <div>
+            <label>전화번호</label>
+            <span th:text="${member.phoneNumber}"></span>
+        </div>
+
+    </div>
+
 
 </body>
 </html>
